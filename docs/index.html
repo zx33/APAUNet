@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>APAUNet</title>
+    <meta content="APAUNet is a segmentation network for 3D medical image data. It aims to improve the small targe segmentation accuracy using projection 2D attention mechanism on three axes." name="description">
+    <meta content="APAUNet: Axis Projection Attention UNet for Small Target Segmentation in 3D Medical Images" property="og:title">
+    <meta content="APAUNet is a segmentation network for 3D medical image data. It aims to improve the small targe segmentation accuracy using projection 2D attention mechanism on three axes." property="og:description">
+    <meta content="APAUNet: Axis Projection Attention UNet for Small Target Segmentation in 3D Medical Images" property="twitter:title">
+    <meta content="APAUNet is a segmentation network for 3D medical image data. It aims to improve the small targe segmentation accuracy using projection 2D attention mechanism on three axes." property="twitter:description">
+    <meta content="" property="og:image">
+    <meta content="" property="twitter:image">
+    <meta property="og:type" content="website">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/ghotish.css" rel="stylesheet">
+</head>
+
+<body class="container-sm">
+    <div>
+        <h2 class="text-center d-block text-dark pt-5">
+            APAUNet: Axis Projection Attention UNet for Small Target Segmentation in 3D Medical Images
+        </h2>
+        <h4 class="text-center d-block" style="color:#ffc107">ACCV 2022</h4>
+        <p class="text-center d-block text-dark">
+            <a class="text-secondary" href="https://scholar.google.com/citations?user=v5jDFU8AAAAJ&hl=zh-CN">Yuncheng Jiang*</a>, 
+            <a class="text-secondary" href="http://andybear.org">Zixun Zhang*</a>, 
+            Shixi Qin, 
+            Yao Guo,
+            <a class="text-secondary" href="https://mypage.cuhk.edu.cn/academics/lizhen/"> Zhen Li</a>, 
+            Shuguang Cui
+        </p>
+        <p class="text-center d-block text-dark">The Chinese University of Hong Kong, Shenzhen</p>
+
+        <div>
+            <div class="row gx-5 justify-content-center row-cols-2">
+                <div class="col-1 p-3 text-decoration-none mx-5">
+                    <button type="button" class="btn"><a class="d-block mx-auto" href="https://arxiv.org/abs/2210.01485"><img src="./figs/paper_icon.png" width="100%"/>
+                    </a>Paper</button>
+
+                </div>
+                <div class="col-1 p-3 text-decoration-none mx-5">
+                    <button type="button" class="btn"><a class="d-block mx-auto" href="https://github.com/zx33/APAUNet"><img src="./figs/code_icon.png" width="100%"/>
+                    </a>Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light container-sm p-4 w-75">
+        <h3 class="subtitle">Motivation & Method</h3>
+        <p>
+            Medical image segmentation aims to automatically and accurately diagnose lesion and organ regions in either 2D or 3D medical images.
+            This task is challenging mainly due to the following two aspects: 
+            1) severe class imbalance of foreground (lesions) and background (entire 3D scans); 
+            2) large variances in shape, location, and size of organs/lesions.
+        </p>
+        <img src="./figs/data_distribution.png" class="img_fluid d-block mx-auto w-75" alt="Data distribution" />
+        <p>
+            As shown in the above figure, on MSD chanllenge and BTCV datasets, 
+            the majority samples of the tumour target and small organ target are smaller than 0.6% to the whole 3D scans with various shapes.
+        </p>
+        <img src="./figs/projection_attention.png" class="img_fluid d-block mx-auto w-75" alt="Projection attention" />
+        <p>
+            In this paper, we propose an axis projection attention mechanism which projects the 3D features to 3 orthogonal 2D planes, i.e., sagittal, axial, and coronal views. 
+            Such a projection operation could mitigate the loss of critical information for small lesions in 3D scans. 
+            For instance, the original foreground-background area ratio of 3D features is O(1/n^3) before the projection, 
+            but after projection, the ratio can be promoted to O(1/n^2). As shown in the above figure.
+        </p>
+    </div>
+
+    <div class="container-sm p-4 w-75">
+        <h3 class="subtitle">Quantitative Results</h3>
+        <h6 class="text-black p-1">BTCV</h6>
+        <img src="./figs/btcv.png" class="img_fluid d-block mx-auto w-75" alt="BTCV" />
+        <h6 class="text-black p-3">MSD Liver & Pancreas</h6>
+        <img src="./figs/msd.png" class="img_fluid d-block mx-auto w-75" alt="MSD" />
+    </div>
+
+    <div class="container-sm bg-light p-4 w-75">
+        <h3 class="subtitle">Citation</h3>
+        <pre><code>
+@inproceedings{apaunet2022,
+    title={APAUNet: Axis Projection Attention UNet for Small Target Segmentation in 3D Medical Images},
+    author={Jiang, Yuncheng and Zhang, Zixun and Qin, Shixi and Guo, Yao and Li, Zhen and Cui, Shuguang},
+    booktitle={Proceedings of the Asian Conference on Computer Vision},
+    year={2022}
+}
+        </code></pre>
+    </div>
+
+</body>
+
+</html>
