@@ -5,6 +5,7 @@ import os
 import random
 import torch
 import monai
+import numpy as np
 from utils import WarmupMultiStepLR
 from build_model import build_model
 from utils import is_npz
