@@ -118,7 +118,7 @@ class Trainer(object):
             'state_dict': self.model.state_dict(),
             'optimizer': self.optimizer.state_dict()
                     }
-        torch.save(checkpoint, os.path.join(self.config["save_path"], 'best_'+self.config["model_name"]+self.config["dataset"]+'.pth'))
+        torch.save(checkpoint, os.path.join(self.config["save_path"], 'best_'+self.config["model_name"]+self.config["dataset"][7:]+'.pth'))
         print(f"best epoch: {self.best_epoch}, best dice: {self.best_dice:.4f}")
 
 
