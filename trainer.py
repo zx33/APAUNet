@@ -83,6 +83,7 @@ class Trainer(object):
         print(f'Average inference Time:{sum(Time) / len(Time):.1f}', )
 
     def evaluation(self, epoch):
+        # a trick for quick evaluate on validation set, the formal evaluate should use slide_windows_inference in MONAI.
         self.model.eval()
         dice_mean_list  = []
         dice_organ_list = []
